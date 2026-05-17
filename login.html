@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>90N.GameShop</title>
+
+  <style>
+    :root {
+      --dark-teal: #335765;
+      --seafoam: #74A8A4;
+      --light-blue: #B6D9E0;
+      --off-white: #DBE2DC;
+      --brown: #7F543D;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: var(--off-white);
+      color: var(--dark-teal);
+    }
+
+    header {
+      height: 72px;
+      background: var(--white);
+      border-top: 3px solid var(--brown);
+      border-bottom: 1px solid var(--light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 9%;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--dark-teal);
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--seafoam);
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .nav-btn {
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: 25px;
+      padding: 11px 24px;
+    }
+
+    .register-btn {
+      background: var(--seafoam);
+      color: var(--white);
+    }
+
+    .login-nav-btn {
+      background: var(--white);
+      color: var(--dark-teal);
+      border: 1px solid var(--dark-teal);
+    }
+
+    main {
+      min-height: 555px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .auth-card {
+      width: 410px;
+      background: var(--white);
+      border: 1px solid var(--light-blue);
+      border-radius: 8px;
+      padding: 36px 24px;
+      box-shadow: 0 10px 28px rgba(51, 87, 101, 0.12);
+    }
+
+    .auth-card h2 {
+      margin-bottom: 26px;
+      color: var(--dark-teal);
+      font-size: 25px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--dark-teal);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      height: 43px;
+      border: 1px solid var(--light-blue);
+      border-radius: 22px;
+      padding: 0 16px;
+      margin-bottom: 18px;
+      outline: none;
+      color: var(--dark-teal);
+      background: var(--white);
+      font-size: 14px;
+    }
+
+    input:focus {
+      border-color: var(--seafoam);
+      box-shadow: 0 0 0 3px rgba(116, 168, 164, 0.22);
+    }
+
+    .options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--dark-teal);
+    }
+
+    .options a {
+      color: var(--brown);
+      text-decoration: none;
+    }
+
+    .main-btn {
+      width: 100%;
+      height: 43px;
+      border: none;
+      border-radius: 25px;
+      background: var(--dark-teal);
+      color: var(--white);
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 15px;
+    }
+
+    .main-btn:hover {
+      background: var(--seafoam);
+    }
+
+    .switch-text {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 14px;
+      color: var(--dark-teal);
+    }
+
+    .switch-text button {
+      border: none;
+      background: transparent;
+      color: var(--brown);
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      background: var(--dark-teal);
+      color: var(--white);
+      padding: 35px 9%;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr 1fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      letter-spacing: 3px;
+      margin-bottom: 24px;
+      font-size: 16px;
+      color: var(--off-white);
+    }
+
+    footer p,
+    footer a {
+      color: var(--off-white);
+      font-size: 14px;
+      text-decoration: none;
+      line-height: 2;
+    }
+
+    .phone-box {
+      border: 1px solid var(--seafoam);
+      border-radius: 35px;
+      padding: 12px 22px;
+      width: 275px;
+      margin-bottom: 15px;
+      color: var(--white);
+    }
+
+    .footer-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 900px) {
+      header {
+        padding: 0 22px;
+      }
+
+      footer {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-links {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      header {
+        height: auto;
+        padding: 18px;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .auth-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo"><span>90N.</span>GameShop</div>
+
+    <div class="nav-buttons">
+      <button class="nav-btn register-btn" onclick="showSignup()">Register</button>
+      <button class="nav-btn login-nav-btn" onclick="showLogin()">Login</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="auth-card">
+
+      <!-- Login Form -->
+      <div id="loginForm">
+        <h2>Login</h2>
+
+        <form>
+          <label>Email</label>
+          <input type="email" placeholder="Enter your email" required />
+
+          <label>Password</label>
+          <input type="password" placeholder="Enter your password" required />
+
+          <div class="options">
+            <label class="remember">
+              <input type="checkbox" checked />
+              Remember me
+            </label>
+
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="main-btn">Login</button>
+
+          <p class="switch-text">
+            Don't have any account?
+            <button type="button" onclick="showSignup()">Create One</button>
+          </p>
+        </form>
+      </div>
+
+      <!-- Signup Form -->
+      <div id="signupForm" class="hidden">
+        <h2>Create Account</h2>
+
+        <form>
+          <label>Username</label>
+          <input type="text" placeholder="Enter your username" required />
+
+          <label>Gmail</label>
+          <input type="email" placeholder="Enter your Gmail" required />
+
+          <label>Password</label>
+          <input type="password" placeholder="Create password" required />
+
+          <label>Confirm Password</label>
+          <input type="password" placeholder="Confirm password" required />
+
+          <button type="submit" class="main-btn">Sign Up</button>
+
+          <p class="switch-text">
+            Already have an account?
+            <button type="button" onclick="showLogin()">Login</button>
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <h3>SUPPORT</h3>
+
+      <div class="phone-box">
+        <p>9AM - 10PM</p>
+        <strong>+8801767375523</strong>
+      </div>
+
+      <div class="phone-box">
+        <p>9AM - 10PM</p>
+        <strong>+8801767375523</strong>
+      </div>
+    </div>
+
+    <div>
+      <h3>ABOUT</h3>
+
+      <div class="footer-links">
+        <div>
+          <a href="#">Terms & condition</a><br />
+          <a href="#">Privacy Policy</a><br />
+          <a href="#">Shipment Info</a><br />
+          <a href="#">Refund and Return Policy</a>
+        </div>
+
+        <div>
+          <a href="#">Contact</a><br />
+          <a href="#">About us</a>
+        </div>
+
+        <div>
+          <a href="#">Free Fire</a><br />
+          <a href="#">Pubg Mobile</a><br />
+          <a href="#">Call of Duty</a><br />
+          <a href="#">Clash of clan</a>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>STAY CONNECTED</h3>
+      <p><strong>90N.GameShop</strong></p>
+      <p>Email: 90ngameshop@gmail.com</p>
+    </div>
+  </footer>
+
+<script>
+  const loginForm = document.getElementById("loginForm");
+  const signupForm = document.getElementById("signupForm");
+
+  const loginFormElement = loginForm.querySelector("form");
+  const signupFormElement = signupForm.querySelector("form");
+
+  function showLogin() {
+    loginForm.classList.remove("hidden");
+    signupForm.classList.add("hidden");
+  }
+
+  function showSignup() {
+    signupForm.classList.remove("hidden");
+    loginForm.classList.add("hidden");
+  }
+
+  signupFormElement.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const inputs = signupFormElement.querySelectorAll("input");
+
+    const username = inputs[0].value.trim();
+    const gmail = inputs[1].value.trim();
+    const password = inputs[2].value.trim();
+    const confirmPassword = inputs[3].value.trim();
+
+    if (!username || !gmail || !password || !confirmPassword) {
+      alert("Please fill all fields.");
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert("Password and confirm password do not match.");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username: username,
+          gmail: gmail,
+          password: password,
+          confirmPassword: confirmPassword
+        })
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        alert(result.message);
+        return;
+      }
+
+      localStorage.setItem("currentUserGmail", result.user.gmail);
+
+      alert("Registration successful!");
+      window.location.href = "/profile";
+
+    } catch (error) {
+      alert("Register failed. Check if server.py is running.");
+      console.error(error);
+    }
+  });
+
+  loginFormElement.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const inputs = loginFormElement.querySelectorAll("input");
+
+    const gmail = inputs[0].value.trim();
+    const password = inputs[1].value.trim();
+
+    if (!gmail || !password) {
+      alert("Please enter Gmail and password.");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          gmail: gmail,
+          password: password
+        })
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        alert(result.message);
+        return;
+      }
+
+      localStorage.setItem("currentUserGmail", result.user.gmail);
+
+      alert("Login successful!");
+      window.location.href = "/profile";
+
+    } catch (error) {
+      alert("Login failed. Check if server.py is running.");
+      console.error(error);
+    }
+  });
+</script>
+
+</body>
+</html>

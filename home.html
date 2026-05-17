@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>90N.GameShop Home</title>
+
+  <style>
+    :root {
+      --dark-teal: #335765;
+      --seafoam: #74A8A4;
+      --light-blue: #B6D9E0;
+      --off-white: #DBE2DC;
+      --brown: #7F543D;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--off-white);
+      color: var(--dark-teal);
+    }
+
+    header {
+      height: 72px;
+      background: var(--white);
+      border-top: 3px solid var(--brown);
+      border-bottom: 1px solid var(--light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 9%;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--dark-teal);
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--seafoam);
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .nav-buttons a {
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--dark-teal);
+      border: 1px solid var(--dark-teal);
+      padding: 10px 22px;
+      border-radius: 25px;
+      background: var(--white);
+    }
+
+    .nav-buttons a:hover {
+      background: var(--seafoam);
+      color: var(--white);
+      border-color: var(--seafoam);
+    }
+
+    main {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .maintenance-box {
+      background: var(--white);
+      border: 1px solid var(--light-blue);
+      border-radius: 16px;
+      padding: 50px 35px;
+      max-width: 520px;
+      width: 100%;
+      box-shadow: 0 10px 28px rgba(51, 87, 101, 0.12);
+    }
+
+    .maintenance-box h1 {
+      font-size: 34px;
+      color: var(--dark-teal);
+      margin-bottom: 12px;
+    }
+
+    .maintenance-box p {
+      font-size: 17px;
+      color: var(--brown);
+    }
+
+    @media (max-width: 500px) {
+      header {
+        height: auto;
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px;
+      }
+
+      .maintenance-box h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo"><span>90N.</span>GameShop</div>
+
+    <div class="nav-buttons">
+      <a href="/profile">Profile</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="maintenance-box">
+      <h1>Under Maintenance</h1>
+      <p>90N.GameShop home page is coming soon.</p>
+    </div>
+  </main>
+
+  <script>
+    function logout() {
+      localStorage.removeItem("currentUserGmail");
+      window.location.href = "/";
+    }
+  </script>
+
+</body>
+</html>

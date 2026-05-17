@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>90N.GameShop Profile</title>
+
+  <style>
+    :root {
+      --dark-teal: #335765;
+      --seafoam: #74A8A4;
+      --light-blue: #B6D9E0;
+      --off-white: #DBE2DC;
+      --brown: #7F543D;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: var(--off-white);
+      color: var(--dark-teal);
+    }
+
+    header {
+      height: 72px;
+      background: var(--white);
+      border-top: 3px solid var(--brown);
+      border-bottom: 1px solid var(--light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 9%;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--dark-teal);
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--seafoam);
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .nav-buttons a {
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--dark-teal);
+      border: 1px solid var(--dark-teal);
+      padding: 10px 22px;
+      border-radius: 25px;
+      background: var(--white);
+    }
+
+    main {
+      min-height: 620px;
+      padding: 45px 9%;
+    }
+
+    .profile-wrapper {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 330px 1fr;
+      gap: 28px;
+    }
+
+    .profile-card,
+    .update-card {
+      background: var(--white);
+      border: 1px solid var(--light-blue);
+      border-radius: 12px;
+      box-shadow: 0 10px 28px rgba(51, 87, 101, 0.12);
+      padding: 28px;
+    }
+
+    .profile-card {
+      text-align: center;
+    }
+
+    .profile-img {
+      width: 145px;
+      height: 145px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--light-blue);
+      margin-bottom: 18px;
+      background: var(--off-white);
+    }
+
+    .profile-card h2 {
+      font-size: 25px;
+      margin-bottom: 8px;
+      color: var(--dark-teal);
+    }
+
+    .profile-card p {
+      font-size: 15px;
+      margin-bottom: 9px;
+      color: var(--dark-teal);
+    }
+
+    .info-box {
+      margin-top: 22px;
+      text-align: left;
+      border-top: 1px solid var(--light-blue);
+      padding-top: 18px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .info-row strong {
+      color: var(--brown);
+    }
+
+    .balance-box {
+      margin-top: 24px;
+      background: var(--dark-teal);
+      color: var(--white);
+      padding: 18px;
+      border-radius: 12px;
+    }
+
+    .balance-box p {
+      color: var(--off-white);
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .balance-box h3 {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .add-money-btn {
+      width: 100%;
+      height: 42px;
+      border: none;
+      border-radius: 25px;
+      background: var(--seafoam);
+      color: var(--white);
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .add-money-btn:hover {
+      background: var(--brown);
+    }
+
+    .update-card h2 {
+      margin-bottom: 25px;
+      color: var(--dark-teal);
+      font-size: 25px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: var(--dark-teal);
+      font-weight: 600;
+    }
+
+    input,
+    select {
+      width: 100%;
+      height: 43px;
+      border: 1px solid var(--light-blue);
+      border-radius: 22px;
+      padding: 0 16px;
+      margin-bottom: 18px;
+      outline: none;
+      color: var(--dark-teal);
+      background: var(--white);
+      font-size: 14px;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--seafoam);
+      box-shadow: 0 0 0 3px rgba(116, 168, 164, 0.22);
+    }
+
+    .gender-preview {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .gender-option {
+      flex: 1;
+      border: 1px solid var(--light-blue);
+      border-radius: 12px;
+      padding: 14px;
+      text-align: center;
+      cursor: pointer;
+      background: var(--white);
+    }
+
+    .gender-option img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      object-fit: cover;
+    }
+
+    .gender-option.active {
+      border-color: var(--seafoam);
+      background: rgba(116, 168, 164, 0.15);
+    }
+
+    .save-btn {
+      width: 100%;
+      height: 43px;
+      border: none;
+      border-radius: 25px;
+      background: var(--dark-teal);
+      color: var(--white);
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .save-btn:hover {
+      background: var(--seafoam);
+    }
+
+    footer {
+      background: var(--dark-teal);
+      color: var(--white);
+      padding: 28px 9%;
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--off-white);
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      .profile-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 0 22px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      header {
+        height: auto;
+        flex-direction: column;
+        gap: 15px;
+        padding: 18px;
+      }
+
+      .nav-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      main {
+        padding: 30px 18px;
+      }
+
+      .gender-preview {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo"><span>90N.</span>GameShop</div>
+
+    <div class="nav-buttons">
+      <a href="/home">Home</a>
+      <a href="#" onclick="logout()">Logout</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="profile-wrapper">
+
+      <!-- Profile Info Card -->
+      <div class="profile-card">
+        <img
+          id="profileImage"
+          class="profile-img"
+          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+          alt="Profile Picture"
+        />
+
+        <h2 id="displayFullName">Rakib Hasan</h2>
+        <p>@<span id="displayUsername">rakib90n</span></p>
+        <p id="displayGmail">rakib@gmail.com</p>
+
+        <div class="info-box">
+          <div class="info-row">
+            <span>Gender</span>
+            <strong id="displayGender">Male</strong>
+          </div>
+
+          <div class="info-row">
+            <span>Joined Date</span>
+            <strong id="displayJoinedDate">12 Jan 2026</strong>
+          </div>
+        </div>
+
+        <div class="balance-box">
+          <p>Current Balance</p>
+          <h3>$<span id="displayBalance">0.00</span></h3>
+          <button class="add-money-btn" onclick="addMoney()">Add Money</button>
+        </div>
+      </div>
+
+      <!-- Update Profile Card -->
+      <div class="update-card">
+        <h2>Update Profile</h2>
+
+        <form onsubmit="updateProfile(event)">
+          <label>Full Name</label>
+          <input type="text" id="fullName" value="Rakib Hasan" required />
+
+          <label>Gmail</label>
+          <input type="email" id="gmail" value="rakib@gmail.com" required />
+
+          <label>Username</label>
+          <input type="text" id="username" value="rakib90n" required />
+
+          <label>Joined Date</label>
+          <input type="text" id="joinedDate" value="12 Jan 2026" readonly />
+
+          <label>Gender Selection</label>
+          <select id="gender" onchange="changeGenderImage()">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+
+          <label>Profile Image Link</label>
+          <input
+            type="url"
+            id="profilePicture"
+            placeholder="Paste image link here"
+            oninput="previewProfileImage()"
+          />
+
+          <div class="gender-preview">
+            <div class="gender-option active" id="maleBox" onclick="selectGender('Male')">
+              <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Male Profile" />
+              <p>Male</p>
+            </div>
+
+            <div class="gender-option" id="femaleBox" onclick="selectGender('Female')">
+              <img src="https://cdn-icons-png.flaticon.com/512/4140/4140047.png" alt="Female Profile" />
+              <p>Female</p>
+            </div>
+          </div>
+
+          <label>Current Balance</label>
+          <input type="text" id="balance" value="0.00" readonly />
+
+          <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 90N.GameShop. All rights reserved.</p>
+  </footer>
+
+<script>
+  const maleImage = "https://cdn-icons-png.flaticon.com/512/3135/3135715.png";
+  const femaleImage = "https://cdn-icons-png.flaticon.com/512/4140/4140047.png";
+
+  let currentUserGmail = localStorage.getItem("currentUserGmail");
+
+  window.addEventListener("load", function () {
+    if (!currentUserGmail) {
+      alert("Please login first.");
+      window.location.href = "/";
+      return;
+    }
+
+    loadProfile();
+  });
+
+  async function loadProfile() {
+    try {
+      const response = await fetch("/api/profile/" + encodeURIComponent(currentUserGmail));
+      const result = await response.json();
+
+      if (!result.success) {
+        alert(result.message);
+        window.location.href = "/";
+        return;
+      }
+
+      showUserData(result.user);
+
+    } catch (error) {
+      alert("Profile loading failed. Check if server.py is running.");
+      console.error(error);
+    }
+  }
+
+  function getDefaultImage(gender) {
+    if (gender === "Female") {
+      return femaleImage;
+    }
+
+    return maleImage;
+  }
+
+  function showUserData(user) {
+    const profilePicture = user.profilePicture || getDefaultImage(user.gender);
+
+    document.getElementById("displayFullName").innerText = user.fullName;
+    document.getElementById("displayUsername").innerText = user.username;
+    document.getElementById("displayGmail").innerText = user.gmail;
+    document.getElementById("displayGender").innerText = user.gender;
+    document.getElementById("displayJoinedDate").innerText = user.joinedDate;
+    document.getElementById("displayBalance").innerText = Number(user.balance).toFixed(2);
+
+    document.getElementById("fullName").value = user.fullName;
+    document.getElementById("gmail").value = user.gmail;
+    document.getElementById("username").value = user.username;
+    document.getElementById("joinedDate").value = user.joinedDate;
+    document.getElementById("gender").value = user.gender;
+    document.getElementById("balance").value = Number(user.balance).toFixed(2);
+    document.getElementById("profilePicture").value = profilePicture;
+
+    document.getElementById("profileImage").src = profilePicture;
+
+    updateGenderActiveBox();
+  }
+
+  function previewProfileImage() {
+    const profilePicture = document.getElementById("profilePicture").value.trim();
+    const gender = document.getElementById("gender").value;
+
+    if (profilePicture) {
+      document.getElementById("profileImage").src = profilePicture;
+    } else {
+      document.getElementById("profileImage").src = getDefaultImage(gender);
+    }
+  }
+
+  async function updateProfile(event) {
+    event.preventDefault();
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const gmail = document.getElementById("gmail").value.trim();
+    const username = document.getElementById("username").value.trim();
+    const gender = document.getElementById("gender").value;
+    let profilePicture = document.getElementById("profilePicture").value.trim();
+
+    if (!fullName || !gmail || !username) {
+      alert("Full name, Gmail, and username are required.");
+      return;
+    }
+
+    if (!profilePicture) {
+      profilePicture = getDefaultImage(gender);
+    }
+
+    try {
+      const response = await fetch("/api/update-profile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          oldGmail: currentUserGmail,
+          fullName: fullName,
+          gmail: gmail,
+          username: username,
+          gender: gender,
+          profilePicture: profilePicture
+        })
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        alert(result.message);
+        return;
+      }
+
+      currentUserGmail = result.user.gmail;
+      localStorage.setItem("currentUserGmail", result.user.gmail);
+
+      showUserData(result.user);
+      alert("Profile updated successfully!");
+
+    } catch (error) {
+      alert("Profile update failed. Check if server.py is running.");
+      console.error(error);
+    }
+  }
+
+  function selectGender(gender) {
+    document.getElementById("gender").value = gender;
+
+    const profilePictureInput = document.getElementById("profilePicture");
+
+    if (!profilePictureInput.value.trim()) {
+      document.getElementById("profileImage").src = getDefaultImage(gender);
+    }
+
+    updateGenderActiveBox();
+  }
+
+  function changeGenderImage() {
+    const gender = document.getElementById("gender").value;
+    const profilePictureInput = document.getElementById("profilePicture");
+
+    if (!profilePictureInput.value.trim()) {
+      document.getElementById("profileImage").src = getDefaultImage(gender);
+    }
+
+    updateGenderActiveBox();
+  }
+
+  function updateGenderActiveBox() {
+    const gender = document.getElementById("gender").value;
+
+    const maleBox = document.getElementById("maleBox");
+    const femaleBox = document.getElementById("femaleBox");
+
+    if (gender === "Male") {
+      maleBox.classList.add("active");
+      femaleBox.classList.remove("active");
+    } else {
+      femaleBox.classList.add("active");
+      maleBox.classList.remove("active");
+    }
+  }
+
+  async function addMoney() {
+    const amount = prompt("Enter amount to add:");
+
+    if (amount === null || amount.trim() === "") {
+      return;
+    }
+
+    const numberAmount = parseFloat(amount);
+
+    if (isNaN(numberAmount) || numberAmount <= 0) {
+      alert("Please enter a valid amount.");
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/add-money", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          gmail: currentUserGmail,
+          amount: numberAmount
+        })
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        alert(result.message);
+        return;
+      }
+
+      showUserData(result.user);
+      alert("Money added successfully!");
+
+    } catch (error) {
+      alert("Add money failed. Check if server.py is running.");
+      console.error(error);
+    }
+  }
+
+  function logout() {
+    localStorage.removeItem("currentUserGmail");
+    window.location.href = "/";
+  }
+</script>
+
+</body>
+</html>
