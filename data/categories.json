@@ -1,0 +1,16 @@
+[
+  {
+    "id": "CAT001",
+    "name": "Free Fire",
+    "slug": "free-fire",
+    "active": true,
+    "created_at": "28 May 2026"
+  },
+  {
+    "id": "CAT002",
+    "name": "Free Fire Service",
+    "slug": "free-fire-service",
+    "active": true,
+    "created_at": "28 May 2026"
+  }
+]

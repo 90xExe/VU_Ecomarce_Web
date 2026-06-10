@@ -1,0 +1,63 @@
+[
+  {
+    "name": "TOP UP BD (UID) AI",
+    "slug": "top-up-bd-uid-ai",
+    "type": "Game / Top up",
+    "image": "assets/images/product-1.png",
+    "active": true,
+    "rules": "90N.GameShop",
+    "packages": [
+      {
+        "name": "25 Diamonds",
+        "price": 20
+      },
+      {
+        "name": "50 Diamonds",
+        "price": 35
+      },
+      {
+        "name": "100 Diamonds",
+        "price": 70
+      }
+    ],
+    "category": "free-fire"
+  },
+  {
+    "name": "Weekly & Monthly (UID)",
+    "slug": "weekly-monthly-uid",
+    "type": "Game / Top up",
+    "image": "assets/images/product-2.png",
+    "active": true,
+    "rules": "90N.GameShop",
+    "packages": [
+      {
+        "name": "Weekly",
+        "price": 158
+      },
+      {
+        "name": "Monthly",
+        "price": 790
+      }
+    ],
+    "category": "free-fire"
+  },
+  {
+    "name": "WEEKLY LITE",
+    "slug": "weekly-lite",
+    "type": "Game / Top up",
+    "image": "assets/images/product-3.png",
+    "active": true,
+    "rules": "90N.GameShop",
+    "packages": [
+      {
+        "name": "1x Weekly Lite",
+        "price": 40
+      },
+      {
+        "name": "2x Weekly Lite",
+        "price": 80
+      }
+    ],
+    "category": "free-fire"
+  }
+]
